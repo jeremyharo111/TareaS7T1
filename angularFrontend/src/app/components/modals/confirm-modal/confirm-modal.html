@@ -1,0 +1,39 @@
+<!-- Backdrop -->
+<div
+  *ngIf="isOpen"
+  class="fixed inset-0 bg-white/20 backdrop-blur-sm z-40 transition-all"
+  (click)="onCancel()"
+></div>
+
+<!-- Modal -->
+<div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6" (click)="$event.stopPropagation()">
+    <!-- Header -->
+    <div class="mb-4">
+      <h3 class="text-xl font-semibold text-gray-900">{{ title }}</h3>
+    </div>
+
+    <!-- Body -->
+    <div class="mb-6">
+      <p class="text-gray-600">{{ message }}</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="flex justify-end gap-3">
+      <button
+        type="button"
+        (click)="onCancel()"
+        class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
+      >
+        Cancelar
+      </button>
+      <button
+        type="button"
+        (click)="onConfirm()"
+        class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+      >
+        Confirmar
+      </button>
+    </div>
+  </div>
+</div>
